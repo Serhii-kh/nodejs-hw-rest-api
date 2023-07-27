@@ -10,7 +10,16 @@ const contactsSchema = Joi.object({
 	phone: Joi.string().required().messages({
 		"any.required": "missing required phone field"
 	}),
+	favorite: Joi.boolean(),
 });
 
+const updStatusSchema = Joi.object({
+	favorite: Joi.boolean().required().messages({
+		"any.required": "missing field favorite"
+	}),
+});
 
-module.exports = contactsSchema;
+module.exports = {
+	contactsSchema,
+	updStatusSchema,
+};
